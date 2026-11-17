@@ -1,0 +1,39 @@
+{{!
+    This file is part of Moodle - https://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <https://www.gnu.org/licenses/>.
+}}
+{{!
+    @template local_bonifica/header
+
+    Title, action line and group menu above the tabs.
+
+    Example context (json):
+    { "title": "Bonifica · Formación FUNDAE", "bar": "Acción 00217 · Teleformación · 20 h · Entidad organizadora",
+      "hasgroups": true, "url": "/local/bonifica/course.php", "courseid": 2, "tab": "archivos",
+      "groups": [{"value": 1, "label": "Grupo mañanas · Número FUNDAE 1", "selected": true}] }
+}}
+<div class="bA-title">{{#icon}}{{> local_bonifica/icon}}{{/icon}}<h2>{{title}}</h2></div>
+<div class="bA-bar"><span class="text-muted small">{{bar}}</span>
+{{#hasgroups}}
+<form method="get" action="{{url}}" class="d-inline-flex">
+    <input type="hidden" name="id" value="{{courseid}}"><input type="hidden" name="tab" value="{{tab}}">
+    <label class="visually-hidden sr-only" for="bon-group">{{#str}}group{{/str}}</label>
+    <select class="form-select custom-select" id="bon-group" name="g" data-bonifica-autosubmit>
+    {{#groups}}<option value="{{value}}" {{#selected}}selected{{/selected}}>{{label}}</option>{{/groups}}
+    </select>
+    <noscript><button class="btn btn-secondary ms-1">{{#str}}go{{/str}}</button></noscript>
+</form>
+{{/hasgroups}}
+</div>

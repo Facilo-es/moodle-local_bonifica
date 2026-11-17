@@ -1,0 +1,75 @@
+{{!
+    This file is part of Moodle - https://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <https://www.gnu.org/licenses/>.
+}}
+{{!
+    @template local_bonifica/files
+
+    Files tab: the end file, what blocks it with an inline fix for each problem, and the checks passed.
+
+    Example context (json):
+    { "filename": "FinalizacionGrupo_00217_1_20261130.xml", "status": {"label": "Terminado", "badge": "warning"}, "ready": false,
+      "hasissues": true, "left": "Quedan 1 de 1", "pct": 0, "passedcount": "7 comprobaciones superadas", "readytitle": "Todo listo.",
+      "readysub": "8 comprobaciones superadas", "passed": [{"text": "Fechas"}], "haswarnings": false, "generated": false,
+      "pro": false, "upsell": true, "inicioready": false, "sesskey": "abc", "courseid": 2, "groupid": 1, "actionurl": "/local/bonifica/course.php?id=2",
+      "downloadurl": "/local/bonifica/download.php", "footer": "Bonifica comprueba el formato.",
+      "issues": [{"i": 0, "message": "Participante 4: el NIF no es válido.", "where": "Grupo 1 · Participantes", "tabname": "Participantes",
+        "taburl": "#", "fix": {"field": "docnum", "partid": 4, "value": "123", "isselect": false, "size": 11, "label": "Número de documento"} }] }
+}}
+<h3 class="bA-h">{{#str}}files_heading, local_bonifica{{/str}}</h3>
+<div class="bA-file">
+    <div><h3>{{#icon}}{{> local_bonifica/icon}}{{/icon}} {{#str}}file_fin, local_bonifica{{/str}} <span class="badge badge-{{status.badge}} bg-{{status.badge}}">{{status.label}}</span></h3>
+        <div class="fn">{{filename}}</div></div>
+    <form class="bA-go" method="post" action="{{downloadurl}}"><input type="hidden" name="sesskey" value="{{sesskey}}"><input type="hidden" name="id" value="{{courseid}}"><input type="hidden" name="g" value="{{groupid}}"><input type="hidden" name="kind" value="fin">
+        <button class="btn btn-primary" {{^ready}}disabled{{/ready}}>{{#str}}gen_fin, local_bonifica{{/str}}</button>{{^ready}}<small>{{#str}}gen_sub, local_bonifica{{/str}}</small>{{/ready}}</form>
+</div>
+{{#filed}}<div class="alert alert-success">{{filed}}</div>{{/filed}}
+{{#ready}}
+<div class="bA-ready"><span class="big"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span>
+    <div><b>{{readytitle}}</b><span class="small">{{readysub}}</span></div></div>
+{{/ready}}
+{{#generated}}
+<div class="alert alert-info bA-after"><b>{{#str}}after, local_bonifica{{/str}}</b>
+    <form method="post" action="{{actionurl}}" class="mt-2"><input type="hidden" name="sesskey" value="{{sesskey}}"><input type="hidden" name="do" value="filed"><input type="hidden" name="kind" value="fin">
+    <button class="btn btn-primary btn-sm">{{#str}}markfiled, local_bonifica{{/str}}</button></form></div>
+{{/generated}}
+{{#hasissues}}
+<section class="bA-checks">
+    <div class="bA-head"><span class="bA-dot x">!</span><h4>{{#str}}checks_blocked, local_bonifica{{/str}}</h4><span class="cnt">{{left}}</span><span class="bA-meter"><i style="width: {{pct}}%"></i></span></div>
+    {{#issues}}
+    <div class="bA-row" data-i="{{i}}"><span class="bA-dot x">×</span>
+        <div><div class="msg">{{message}}</div><div class="where">{{where}}</div></div>
+        {{#fix}}
+        <button type="button" class="btn btn-outline-secondary btn-sm" data-bonifica-fixopen>{{#str}}fix, local_bonifica{{/str}}</button>
+        <form class="bA-fix" hidden method="post" action="{{actionurl}}" data-bonifica-fix><input type="hidden" name="sesskey" value="{{sesskey}}"><input type="hidden" name="do" value="saveall"><input type="hidden" name="back" value="archivos">
+            <label for="bon-fix-{{i}}">{{label}}</label>
+            {{#isselect}}<select class="form-control form-select" id="bon-fix-{{i}}" name="cells[{{partid}}][{{field}}]">{{#options}}<option value="{{value}}" {{#selected}}selected{{/selected}}>{{label}}</option>{{/options}}</select>{{/isselect}}
+            {{^isselect}}<input class="form-control" id="bon-fix-{{i}}" name="cells[{{partid}}][{{field}}]" value="{{value}}" size="14">{{/isselect}}
+            <button class="btn btn-primary btn-sm">{{#str}}fixsave, local_bonifica{{/str}}</button><span class="err" hidden></span>
+        </form>
+        {{/fix}}
+        {{^fix}}<a class="btn btn-outline-secondary btn-sm" href="{{taburl}}">{{#str}}fixgo, local_bonifica, {{tabname}}{{/str}}</a>{{/fix}}
+    </div>
+    {{/issues}}
+    <details class="bA-pass"><summary><span class="bA-dot v">✓</span><span>{{passedcount}}</span></summary>
+    {{#passed}}<div class="bA-row"><span class="bA-dot v">✓</span><span>{{text}}</span><span></span></div>{{/passed}}
+    </details>
+</section>
+{{/hasissues}}
+{{#haswarnings}}
+<div class="alert alert-warning"><b>{{#str}}warnings_heading, local_bonifica{{/str}}</b><ul class="mb-0">{{#warnings}}<li>{{message}} <span class="small text-muted">· {{where}}</span></li>{{/warnings}}</ul></div>
+{{/haswarnings}}
+{{#upsell}}<aside class="bA-up">{{#mutedicon}}{{> local_bonifica/icon}}{{/mutedicon}}<div>{{#str}}upsell, local_bonifica{{/str}} · <i>{{#str}}upsell_soon, local_bonifica{{/str}}</i></div></aside>{{/upsell}}
+<p class="bA-note">{{footer}}</p>

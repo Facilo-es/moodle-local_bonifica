@@ -1,0 +1,41 @@
+{{!
+    This file is part of Moodle - https://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <https://www.gnu.org/licenses/>.
+}}
+{{!
+    @template local_bonifica/dashboard
+
+    Site dashboard: groups by status and deadline, finish rate and inspector accounts (Pro).
+    In the free build it shows only the Pro card.
+
+    Example context (json):
+    { "pro": true, "today": "lunes, 30 de noviembre de 2026", "hasgroups": true, "hasrows": true, "hasinspectors": true,
+      "icon": {"size": 34, "c1": "#0f6cbf", "c2": "#357a32"},
+      "cards": [{"label": "Grupos con datos pendientes", "n": 2, "colour": "#ca3120", "sub": "Completa los datos", "url": "#", "on": false}],
+      "chips": [{"label": "Todos", "n": 5, "on": true, "url": "#"}],
+      "rows": [{"course": "Prevención de riesgos", "group": "Grupo mañanas", "idaccion": "217", "idgrupo": "1",
+        "dates": "14/12/2026 – 22/12/2026", "status": {"label": "Faltan datos", "badge": "danger"}, "hasdeadline": true,
+        "day": "07", "month": "dic", "due": "Inicio: vence el 07/12/2026",
+        "deadline": {"label": "Vence en 3 días", "badge": "warning", "cls": "soon"}, "url": "#"}],
+      "inspectors": [{"username": "inspeccion_217", "course": "Prevención de riesgos", "suspended": false,
+        "lastaccess": "Nunca", "manageurl": "#", "suspendbutton": "<button>Suspender</button>"}] }
+}}
+<div class="local-bonifica bD">
+<div class="bA-title">{{#icon}}{{> local_bonifica/icon}}{{/icon}}<h2>{{#str}}dashboard, local_bonifica{{/str}}</h2><span class="text-muted small ms-auto">{{today}}</span></div>
+{{#upsell}}
+<aside class="bA-up">{{#mutedicon}}{{> local_bonifica/icon}}{{/mutedicon}}<div>{{#str}}upsell, local_bonifica{{/str}} · <i>{{#str}}upsell_soon, local_bonifica{{/str}}</i></div></aside>
+{{/upsell}}
+<p class="bA-note">{{#str}}footer_noaccept, local_bonifica{{/str}}</p>
+</div>

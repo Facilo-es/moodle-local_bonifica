@@ -1,0 +1,1000 @@
+.local-bonifica .bA-title {
+    display: flex;
+    align-items: center;
+    gap: .6rem;
+    margin-bottom: .25rem;
+}
+
+.local-bonifica .bA-title h2 {
+    font-size: 1.4rem;
+    margin: 0;
+}
+
+.local-bonifica .bA-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .75rem;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.local-bonifica .bA-bar select {
+    max-width: 100%;
+}
+
+.local-bonifica .bA-file {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 1rem 1.5rem;
+    align-items: center;
+    padding: 1.25rem 1.5rem;
+    border-radius: .75rem;
+    border: 1px solid var(--bs-border-color, #dee2e6);
+    background: #fff;
+    margin-bottom: 1rem;
+}
+
+.local-bonifica .bA-file .fn {
+    font-family: SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: .82rem;
+    color: var(--bs-secondary-color, #6a737b);
+    word-break: break-all;
+}
+
+.local-bonifica .bA-file h3 {
+    font-size: 1.15rem;
+    margin: 0 0 .2rem;
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    flex-wrap: wrap;
+}
+
+.local-bonifica .bA-go {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: .35rem;
+}
+
+.local-bonifica .bA-go .btn {
+    font-size: 1rem;
+    padding: .6rem 1.1rem;
+}
+
+.local-bonifica .bA-go small {
+    color: var(--bs-secondary-color, #6a737b);
+    font-size: .8rem;
+}
+
+.local-bonifica .bA-checks {
+    border: 1px solid var(--bs-border-color, #dee2e6);
+    border-radius: .75rem;
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
+
+.local-bonifica .bA-head {
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+    padding: 1rem 1.25rem;
+    background: #fbeceb;
+    border-bottom: 1px solid #efc4bf;
+}
+
+.local-bonifica .bA-head h4 {
+    margin: 0;
+    font-size: 1.05rem;
+    color: #6d1a11;
+}
+
+.local-bonifica .bA-head .cnt {
+    margin-left: auto;
+    font-size: .85rem;
+    color: #6d1a11;
+    white-space: nowrap;
+}
+
+.local-bonifica .bA-meter {
+    height: 6px;
+    background: #efc4bf;
+    border-radius: 3px;
+    overflow: hidden;
+    width: 160px;
+    flex: none;
+}
+
+.local-bonifica .bA-meter i {
+    display: block;
+    height: 100%;
+    background: var(--bs-success, #357a32);
+    transition: width .4s;
+}
+
+.local-bonifica .bA-ok .bA-head {
+    background: #e3efe2;
+    border-color: #c6dbc5;
+}
+
+.local-bonifica .bA-ok .bA-head h4,
+.local-bonifica .bA-ok .bA-head .cnt {
+    color: #1c411a;
+}
+
+.local-bonifica .bA-row {
+    display: grid;
+    grid-template-columns: 24px minmax(0, 1fr) auto;
+    gap: .75rem;
+    align-items: start;
+    padding: .8rem 1.25rem;
+    border-bottom: 1px solid var(--bs-border-color, #dee2e6);
+}
+
+.local-bonifica .bA-row:last-child {
+    border-bottom: 0;
+}
+
+.local-bonifica .bA-dot {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    margin-top: 1px;
+}
+
+.local-bonifica .bA-dot.x {
+    background: var(--bs-danger, #ca3120);
+}
+
+.local-bonifica .bA-dot.v {
+    background: var(--bs-success, #357a32);
+}
+
+.local-bonifica .bA-row .where {
+    font-size: .8rem;
+    color: var(--bs-secondary-color, #6a737b);
+}
+
+.local-bonifica .bA-fix {
+    grid-column: 2/4;
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+    align-items: center;
+    background: var(--bs-gray-100, #f8f9fa);
+    border-radius: .5rem;
+    padding: .65rem .75rem;
+    margin-top: .15rem;
+}
+
+.local-bonifica .bA-fix[hidden] {
+    display: none;
+}
+
+.local-bonifica .bA-fix label {
+    font-size: .85rem;
+    font-weight: 600;
+}
+
+.local-bonifica .bA-fix .err {
+    color: var(--bs-danger, #ca3120);
+    font-size: .82rem;
+    width: 100%;
+}
+
+.local-bonifica .bA-row.done {
+    background: #f6faf6;
+}
+
+.local-bonifica .bA-row.done .msg {
+    color: var(--bs-secondary-color, #6a737b);
+    text-decoration: line-through;
+    text-decoration-color: #9bb89a;
+}
+
+.local-bonifica .bA-pass summary {
+    cursor: pointer;
+    padding: .75rem 1.25rem;
+    color: var(--bs-secondary-color, #6a737b);
+    font-size: .9rem;
+    list-style: none;
+    display: flex;
+    gap: .6rem;
+    align-items: center;
+}
+
+.local-bonifica .bA-pass summary::-webkit-details-marker {
+    display: none;
+}
+
+.local-bonifica .bA-pass[open] summary {
+    border-bottom: 1px solid var(--bs-border-color, #dee2e6);
+}
+
+.local-bonifica .bA-pass .bA-row {
+    padding: .5rem 1.25rem;
+    font-size: .9rem;
+}
+
+.local-bonifica .bA-ready {
+    display: none;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.25rem 1.5rem;
+    border-radius: .75rem;
+    background: linear-gradient(100deg, #e3efe2, #f1f8f0);
+    border: 1px solid #c6dbc5;
+    margin-bottom: 1rem;
+}
+
+.local-bonifica .bA-ready .big {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: var(--bs-success, #357a32);
+    display: grid;
+    place-items: center;
+    flex: none;
+}
+
+.local-bonifica .bA-ready b {
+    display: block;
+    font-size: 1.1rem;
+    color: #1c411a;
+}
+
+.local-bonifica.is-ready .bA-ready {
+    display: flex;
+}
+
+.local-bonifica.is-ready .bA-checks {
+    display: none;
+}
+
+.local-bonifica .bA-after {
+    display: none;
+}
+
+.local-bonifica.is-done .bA-after {
+    display: block;
+}
+
+.local-bonifica .bA-pro {
+    display: none;
+    gap: .5rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+}
+
+.local-bonifica.pro .bA-pro {
+    display: flex;
+}
+
+.local-bonifica.pro .bA-up {
+    display: none;
+}
+
+.local-bonifica .bA-up {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    padding: 1rem 1.25rem;
+    border: 1px dashed #b8c2cc;
+    border-radius: .75rem;
+    color: #495057;
+    font-size: .9rem;
+    margin: 1.5rem 0 1rem;
+}
+
+.local-bonifica .bA-up b {
+    color: var(--bs-body-color, #1d2125);
+}
+
+.local-bonifica .bA-note {
+    font-size: .85rem;
+    color: var(--bs-secondary-color, #6a737b);
+    font-style: italic;
+    border-top: 1px solid var(--bs-border-color, #dee2e6);
+    padding-top: .75rem;
+}
+
+.local-bonifica .bC-top {
+    display: flex;
+    align-items: center;
+    gap: .6rem;
+    margin-bottom: .25rem;
+}
+
+.local-bonifica .bC-top h2 {
+    font-size: 1.4rem;
+    margin: 0;
+}
+
+.local-bonifica .bC-sum {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem 1.25rem;
+    align-items: center;
+    padding: 1rem 1.25rem;
+    border-radius: .85rem;
+    background: #f4f6f8;
+    margin-bottom: 1rem;
+}
+
+.local-bonifica .bC-ring {
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    background: conic-gradient(var(--bs-success, #357a32) calc(var(--p) *1%), #dfe3e7 0);
+    display: grid;
+    place-items: center;
+}
+
+.local-bonifica .bC-ring span {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #f4f6f8;
+    display: grid;
+    place-items: center;
+    font-weight: 800;
+    font-size: .95rem;
+}
+
+.local-bonifica .bC-sum b {
+    font-size: 1.1rem;
+    display: block;
+}
+
+.local-bonifica .bC-sum .sub {
+    font-size: .85rem;
+    color: var(--bs-secondary-color, #6a737b);
+}
+
+.local-bonifica .bC-sum > div:nth-child(2) {
+    flex: 1 1 18rem;
+}
+
+.local-bonifica .bC-acts {
+    display: flex;
+    gap: .5rem;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    margin-left: auto;
+}
+
+.local-bonifica .bC-seg {
+    display: none;
+    gap: 0;
+    border: 1px solid var(--bs-border-color, #dee2e6);
+    border-radius: .6rem;
+    overflow: hidden;
+    width: max-content;
+    margin-bottom: .75rem;
+}
+
+.local-bonifica.pro .bC-seg {
+    display: flex;
+}
+
+.local-bonifica .bC-seg button {
+    font: inherit;
+    font-size: .88rem;
+    border: 0;
+    background: #fff;
+    padding: .35rem .9rem;
+    cursor: pointer;
+}
+
+.local-bonifica .bC-seg button.on {
+    background: #1d2125;
+    color: #fff;
+}
+
+.local-bonifica .bC-sheet {
+    border: 1px solid #cfd5db;
+    border-radius: .6rem;
+    overflow-x: auto;
+    background: #fff;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, .04);
+}
+
+.local-bonifica .bC-sheet table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: .86rem;
+    min-width: 980px;
+}
+
+.local-bonifica .bC-sheet th {
+    background: #f4f6f8;
+    font-weight: 600;
+    text-align: left;
+    padding: .5rem .6rem;
+    border-bottom: 1px solid #cfd5db;
+    border-right: 1px solid #e3e7eb;
+    white-space: nowrap;
+    color: #3b434a;
+    font-size: .8rem;
+}
+
+.local-bonifica .bC-sheet td {
+    border-bottom: 1px solid #e3e7eb;
+    border-right: 1px solid #e3e7eb;
+    padding: 0;
+    vertical-align: top;
+}
+
+.local-bonifica .bC-sheet td.rn {
+    background: #f9fafb;
+    color: var(--bs-secondary-color, #6a737b);
+    text-align: center;
+    padding: .5rem .4rem;
+    width: 36px;
+    font-variant-numeric: tabular-nums;
+}
+
+.local-bonifica .bC-sheet td.nm {
+    padding: .5rem .6rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.local-bonifica .bC-cell {
+    width: 100%;
+    border: 0;
+    font: inherit;
+    padding: .5rem .6rem;
+    background: transparent;
+    color: inherit;
+    min-width: 0;
+}
+
+.local-bonifica .bC-cell:focus {
+    outline: 2px solid var(--bs-primary, #0f6cbf);
+    outline-offset: -2px;
+    background: #fff;
+}
+
+.local-bonifica td[data-i="3"] {
+    min-width: 210px;
+}
+
+.local-bonifica .bC-cell.mono {
+    font-family: SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: .82rem;
+}
+
+.local-bonifica td.bad {
+    background: #fdecea;
+    box-shadow: inset 0 -2px 0 var(--bs-danger, #ca3120);
+}
+
+.local-bonifica td .why {
+    display: none;
+    font-size: .74rem;
+    color: #8a2216;
+    padding: 0 .6rem .4rem;
+    line-height: 1.25;
+}
+
+.local-bonifica td.bad .why {
+    display: block;
+}
+
+.local-bonifica tr.okrow td.rn {
+    color: var(--bs-success, #357a32);
+}
+
+.local-bonifica tr.badrow td.rn {
+    box-shadow: inset 3px 0 0 #c4321f;
+    background: #fdf1ef;
+}
+
+/* The row "Corregir" went to stays marked, even when its number column is scrolled off. */
+.local-bonifica tr.badrow.target td:not(.bad) {
+    background: #fdf1ef;
+    box-shadow: inset 0 2px 0 #c4321f, inset 0 -2px 0 #c4321f;
+}
+
+.local-bonifica tr.badrow.target td.rn {
+    box-shadow: inset 3px 0 0 #c4321f, inset 0 2px 0 #c4321f, inset 0 -2px 0 #c4321f;
+}
+
+.local-bonifica .bC-rn {
+    border: 0;
+    border-radius: 999px;
+    min-width: 1.6rem;
+    padding: .1rem .45rem;
+    background: #c4321f;
+    color: #fff;
+    font-size: .78rem;
+    font-weight: 700;
+    line-height: 1.3;
+    cursor: pointer;
+}
+
+.local-bonifica .bC-rn:hover,
+.local-bonifica .bC-rn:focus {
+    background: #8a2216;
+    outline: 2px solid #f3b9b0;
+}
+
+.local-bonifica td.bad.flash {
+    animation: bonifica-flash 1.2s ease-out;
+}
+
+@keyframes bonifica-flash {
+    0% {
+        box-shadow: inset 0 0 0 3px #c4321f;
+    }
+    100% {
+        box-shadow: inset 0 0 0 0 transparent;
+    }
+}
+
+.local-bonifica .bC-foot {
+    position: sticky;
+    bottom: 0;
+    margin-top: 1rem;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: .8rem 1.1rem;
+    border-radius: .85rem;
+    background: #1d2125;
+    color: #fff;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, .18);
+}
+
+.local-bonifica .bC-foot .t {
+    font-size: .9rem;
+    margin-right: auto;
+}
+
+.local-bonifica .bC-foot .ts,
+.local-bonifica .bC-foot .bC-next {
+    display: none;
+}
+
+.local-bonifica .bC-foot.bad .bC-next {
+    display: inline-block;
+}
+
+.local-bonifica .bC-foot form {
+    margin: 0;
+}
+
+/* Phones: one compact row, short text and one button, so nothing under it stays hidden. */
+@media (max-width: 576px) {
+    .local-bonifica .bC-foot {
+        flex-wrap: nowrap;
+        gap: .6rem;
+        padding: .45rem .5rem .45rem .9rem;
+        border-radius: .7rem;
+    }
+
+    .local-bonifica .bC-foot .t,
+    .local-bonifica .bC-foot .bC-save,
+    .local-bonifica .bC-foot.bad .bC-gen {
+        display: none;
+    }
+
+    .local-bonifica .bC-foot .ts {
+        display: block;
+        flex: 1;
+        min-width: 0;
+        font-size: .85rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .local-bonifica .bC-foot .btn {
+        padding: .3rem .75rem;
+        font-size: .875rem;
+        white-space: nowrap;
+    }
+}
+
+.local-bonifica .bC-foot .btn.btn-primary:disabled,
+.local-bonifica .bC-foot .btn.btn-primary.disabled:disabled {
+    background: #4a525a;
+    opacity: 1;
+    color: #aab2ba;
+}
+
+.local-bonifica .bC-note {
+    font-size: .85rem;
+    color: var(--bs-secondary-color, #6a737b);
+    font-style: italic;
+    margin-top: .75rem;
+}
+
+.local-bonifica .bC-dlg {
+    position: fixed;
+    inset: 0;
+    background: rgba(29, 33, 37, .45);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 40;
+    padding: 1rem;
+}
+
+.local-bonifica .bC-dlg.open {
+    display: flex;
+}
+
+.local-bonifica .bC-dlg .box {
+    background: #fff;
+    border-radius: .85rem;
+    max-width: 640px;
+    width: 100%;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, .25);
+}
+
+.local-bonifica .bC-dlg header {
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid var(--bs-border-color, #dee2e6);
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.local-bonifica .bC-dlg .b {
+    padding: 1rem 1.25rem;
+}
+
+.local-bonifica .bC-dlg textarea {
+    width: 100%;
+    height: 150px;
+    font-family: SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: .78rem;
+    border: 1px solid #8f959e;
+    border-radius: .5rem;
+    padding: .6rem;
+}
+
+.local-bonifica .bC-dlg footer {
+    padding: .8rem 1.25rem;
+    border-top: 1px solid var(--bs-border-color, #dee2e6);
+    display: flex;
+    justify-content: flex-end;
+    gap: .5rem;
+}
+
+.local-bonifica .bC-res {
+    margin-bottom: 1rem;
+}
+
+.local-bonifica .bC-res ul {
+    margin: .3rem 0 0;
+    padding-left: 1.2rem;
+}
+
+.local-bonifica .bC-fin {
+    display: none;
+}
+
+.local-bonifica.show-fin .bC-fin {
+    display: block;
+}
+
+.local-bonifica.show-fin .bC-data {
+    display: none;
+}
+
+.local-bonifica .bA-h {
+    font-size: 1.25rem;
+}
+
+.local-bonifica .bC-acts form,
+.local-bonifica .bC-foot form,
+.local-bonifica .bA-pro form {
+    display: inline-flex;
+    margin: 0;
+}
+
+.local-bonifica .bC-foot .t {
+    flex: 1;
+}
+
+.local-bonifica .bC-sheet table.bon-costs,
+.local-bonifica .bC-sheet table.bon-groups {
+    min-width: 640px;
+}
+
+.local-bonifica .bC-sheet td.px-2 {
+    padding: .5rem .6rem;
+    vertical-align: middle;
+}
+
+.local-bonifica .bC-sheet tr.bon-new td {
+    background: #fbfcfd;
+}
+
+@media (max-width: 820px) {
+    .local-bonifica .bA-file {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .local-bonifica .bA-go {
+        align-items: stretch;
+    }
+
+    .local-bonifica .bA-meter {
+        display: none;
+    }
+
+    .local-bonifica .bA-head {
+        flex-wrap: wrap;
+    }
+
+    .local-bonifica .bA-head .cnt {
+        margin-left: 0;
+    }
+
+
+    .local-bonifica .bC-sum > div:nth-child(2) {
+        flex-basis: 0;
+    }
+
+    .local-bonifica .bC-acts {
+        flex-basis: 100%;
+        justify-content: flex-start;
+    }
+}
+
+/* Site dashboard (Pro). */
+.local-bonifica.bD .bA-title .ms-auto {
+    margin-left: auto;
+}
+
+.local-bonifica .bD-cards {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.local-bonifica .bD-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: .35rem;
+    padding: 1rem 1.15rem 1.1rem 1.4rem;
+    border: 1px solid var(--bs-border-color, #dee2e6);
+    border-radius: .85rem;
+    background: #fff;
+    color: inherit;
+    text-decoration: none;
+    overflow: hidden;
+}
+
+.local-bonifica .bD-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 5px;
+    background: var(--c);
+}
+
+.local-bonifica a.bD-card:hover,
+.local-bonifica a.bD-card:focus {
+    color: inherit;
+    text-decoration: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .08);
+}
+
+.local-bonifica .bD-card.on {
+    box-shadow: 0 0 0 2px var(--c) inset;
+}
+
+.local-bonifica .bD-card .n {
+    font-size: 2.4rem;
+    font-weight: 800;
+    line-height: 1;
+    color: var(--c);
+    font-variant-numeric: tabular-nums;
+}
+
+.local-bonifica .bD-card .l {
+    font-weight: 600;
+    font-size: .92rem;
+}
+
+.local-bonifica .bD-card .s,
+.local-bonifica .bD-insp .c,
+.local-bonifica .bD-row .meta {
+    font-size: .82rem;
+    color: #6a737b;
+}
+
+.local-bonifica .bD-wrap {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 300px;
+    gap: 1.5rem;
+    align-items: start;
+}
+
+.local-bonifica .bD-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .4rem;
+    margin-bottom: .75rem;
+}
+
+.local-bonifica .bD-chip {
+    display: inline-flex;
+    gap: .4rem;
+    align-items: center;
+    padding: .3rem .8rem;
+    font-size: .85rem;
+    border: 1px solid var(--bs-border-color, #dee2e6);
+    border-radius: 2rem;
+    background: #fff;
+    color: inherit;
+    text-decoration: none;
+}
+
+.local-bonifica .bD-chip b {
+    color: #6a737b;
+    font-weight: 600;
+}
+
+.local-bonifica .bD-chip.on {
+    background: #1d2125;
+    border-color: #1d2125;
+    color: #fff;
+}
+
+.local-bonifica .bD-chip.on b {
+    color: #cfd4da;
+}
+
+.local-bonifica .bD-list {
+    border: 1px solid var(--bs-border-color, #dee2e6);
+    border-radius: .85rem;
+    overflow: hidden;
+    background: #fff;
+}
+
+.local-bonifica .bD-row {
+    display: grid;
+    grid-template-columns: 70px minmax(0, 1fr) auto;
+    gap: 1rem;
+    align-items: center;
+    padding: .85rem 1.1rem;
+    border-bottom: 1px solid var(--bs-border-color, #dee2e6);
+}
+
+.local-bonifica .bD-row:last-child {
+    border-bottom: 0;
+}
+
+.local-bonifica .bD-row h4 {
+    font-size: 1rem;
+    margin: 0 0 .2rem;
+}
+
+.local-bonifica .bD-row .meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+    align-items: center;
+}
+
+.local-bonifica .bD-row .mono {
+    font-family: var(--bs-font-monospace, monospace);
+}
+
+.local-bonifica .bD-date {
+    border-radius: .6rem;
+    text-align: center;
+    padding: .4rem 0 .45rem;
+    background: #f8f9fa;
+    border: 1px solid var(--bs-border-color, #dee2e6);
+}
+
+.local-bonifica .bD-date .d {
+    font-size: 1.4rem;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.local-bonifica .bD-date .mo {
+    font-size: .7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+}
+
+.local-bonifica .bD-date.late {
+    background: #fbeceb;
+    border-color: #efc4bf;
+    color: #8a2216;
+}
+
+.local-bonifica .bD-date.soon {
+    background: #fdf3e2;
+    border-color: #f6d9a6;
+    color: #7d5a29;
+}
+
+.local-bonifica .bD-date.none .d {
+    font-size: 1rem;
+    color: #6a737b;
+}
+
+.local-bonifica .bD-side h5 {
+    font-size: .95rem;
+    margin: 0 0 .6rem;
+}
+
+.local-bonifica .bD-insp {
+    display: flex;
+    gap: .6rem;
+    align-items: center;
+    justify-content: space-between;
+    padding: .5rem 0;
+    border-top: 1px solid var(--bs-border-color, #dee2e6);
+    font-size: .85rem;
+}
+
+.local-bonifica .bD-insp:first-of-type {
+    border-top: 0;
+}
+
+.local-bonifica .bD-insp form,
+.local-bonifica .bD-insp .singlebutton {
+    margin: 0;
+}
+
+.local-bonifica .bD-empty {
+    padding: 2rem;
+    text-align: center;
+    color: #6a737b;
+}
+
+@media (max-width: 980px) {
+    .local-bonifica .bD-cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .local-bonifica .bD-wrap {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+.local-bonifica .bonifica-flags summary {
+    cursor: pointer;
+    white-space: nowrap;
+    color: #495057;
+}
+
+.local-bonifica .bonifica-flags[open] summary {
+    margin-bottom: .25rem;
+}
+
+.local-bonifica .bC-data td[data-field="nombre"] > * {
+    min-width: 11rem;
+}
+
+.local-bonifica .bC-data td[data-field="email"] > * {
+    min-width: 14rem;
+}
+
+.local-bonifica .bC-data td[data-field="telefono"] > *,
+.local-bonifica .bC-data td[data-field="docnum"] > * {
+    min-width: 8.5rem;
+}

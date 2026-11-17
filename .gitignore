@@ -1,0 +1,4 @@
+dist/
+*.log
+phpunit.xml
+tests/phpunit.xml

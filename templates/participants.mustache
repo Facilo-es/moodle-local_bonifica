@@ -1,0 +1,74 @@
+{{!
+    This file is part of Moodle - https://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <https://www.gnu.org/licenses/>.
+}}
+{{!
+    @template local_bonifica/participants
+
+    Participants grid: every FUNDAE field in a cell, problems in red under the cell, a paste dialog and,
+    in Pro, the finished results.
+
+    Example context (json):
+    { "ok": 1, "n": 2, "pct": 50, "ready": "1 de 2 participantes listos", "sub": "Falta 1 dato.", "foot": "Corrige la fila marcada.", "footshort": "1 fila por corregir",
+      "allready": false, "hasrows": true, "canexport": false, "sesskey": "abc", "actionurl": "/local/bonifica/course.php?id=2",
+      "courseid": 2, "groupid": 1, "downloadurl": "/local/bonifica/download.php", "templateurl": "/local/bonifica/template.php?id=2",
+      "pro": false, "footer": "Bonifica comprueba el formato.", "headers": ["Participante"],
+      "rows": [{"id": 1, "n": 1, "ok": false, "fixlabel": "Corregir la fila 1", "name": "Ana", "delconfirm": "¿Quitar?", "flags": [], "flagsummary": "Ninguno",
+        "cells": [{"field": "nombre", "partid": 1, "value": "Ana", "bad": false, "isselect": false, "size": 22, "label": "Participante"}]}] }
+}}
+<div class="bC-sum"><div class="bC-ring" style="--p: {{pct}}"><span>{{ok}}</span></div>
+    <div><b data-region="ready">{{ready}}</b><span class="sub" data-region="sub">{{sub}}</span></div>
+    <div class="bC-acts">
+        <form method="post" action="{{actionurl}}"><input type="hidden" name="sesskey" value="{{sesskey}}"><input type="hidden" name="do" value="addpart">
+            <button class="btn btn-outline-secondary">{{#str}}addpart, local_bonifica{{/str}}</button></form>
+        <button type="button" class="btn btn-primary" data-bonifica-open="bon-paste">{{#str}}paste, local_bonifica{{/str}}</button>
+    </div>
+</div>
+{{#hasrows}}
+<form method="post" action="{{actionurl}}" id="bon-grid" data-bonifica-grid data-groupid="{{groupid}}">
+<input type="hidden" name="sesskey" value="{{sesskey}}"><input type="hidden" name="do" value="saveall">
+<div class="bC-sheet bC-data"><table>
+<thead><tr><th></th>{{#headers}}<th>{{.}}</th>{{/headers}}<th>{{#str}}col_flags, local_bonifica{{/str}}</th><th></th></tr></thead>
+<tbody>
+{{#rows}}
+<tr class="{{#ok}}okrow{{/ok}}{{^ok}}badrow{{/ok}}" data-partid="{{id}}"><td class="rn">{{^ok}}<button type="button" class="bC-rn" data-bonifica-goto title="{{fixlabel}}" aria-label="{{fixlabel}}">{{n}}</button>{{/ok}}{{#ok}}✓{{/ok}}</td>
+{{#cells}}
+<td class="{{#bad}}bad{{/bad}}" data-field="{{field}}">
+{{#isselect}}<select class="bC-cell" name="cells[{{partid}}][{{field}}]" aria-label="{{label}}">{{#options}}<option value="{{value}}" {{#selected}}selected{{/selected}}>{{label}}</option>{{/options}}</select>{{/isselect}}
+{{^isselect}}<input class="bC-cell{{#mono}} mono{{/mono}}" name="cells[{{partid}}][{{field}}]" value="{{value}}" size="{{size}}" aria-label="{{label}}">{{/isselect}}
+<div class="why">{{why}}</div></td>
+{{/cells}}
+<td class="small"><details class="bonifica-flags"><summary>{{flagsummary}}</summary>{{#flags}}<label class="d-block text-nowrap mb-0"><input type="hidden" name="cells[{{partid}}][flag_{{flag}}]" value="0"><input type="checkbox" name="cells[{{partid}}][flag_{{flag}}]" value="1" {{#checked}}checked{{/checked}}> {{label}}</label>{{/flags}}</details></td>
+<td><button class="btn btn-link btn-sm text-danger" name="delpart" value="{{id}}" data-confirm="{{delconfirm}}" title="{{#str}}deletepart, local_bonifica{{/str}}">×</button></td>
+</tr>
+{{/rows}}
+</tbody></table></div>
+</form>
+{{/hasrows}}
+{{^hasrows}}<div class="alert alert-info">{{#str}}ready_none_sub, local_bonifica{{/str}}</div>{{/hasrows}}
+<div class="bC-foot{{#hasrows}}{{^allready}} bad{{/allready}}{{/hasrows}}"><span class="t" data-region="foot">{{foot}}</span><span class="ts" data-region="footshort">{{footshort}}</span>
+    {{#hasrows}}<button type="button" class="btn btn-light bC-next" data-bonifica-next>{{#str}}fix, local_bonifica{{/str}}</button>
+    <button class="btn btn-outline-secondary bC-save" form="bon-grid" data-bonifica-saveall>{{#str}}savechanges{{/str}}</button>{{/hasrows}}
+    <form class="bC-gen" method="post" action="{{downloadurl}}"><input type="hidden" name="sesskey" value="{{sesskey}}"><input type="hidden" name="id" value="{{courseid}}"><input type="hidden" name="g" value="{{groupid}}"><input type="hidden" name="kind" value="fin">
+    <button class="btn btn-primary" data-region="gen" {{^canexport}}disabled{{/canexport}}>{{#str}}gen_fin, local_bonifica{{/str}}</button></form>
+</div>
+<p class="bC-note">{{footer}}</p>
+<div class="bC-dlg" id="bon-paste" role="dialog" aria-modal="true" aria-labelledby="bon-paste-h"><div class="box">
+<form method="post" action="{{actionurl}}"><input type="hidden" name="sesskey" value="{{sesskey}}"><input type="hidden" name="do" value="paste">
+<header id="bon-paste-h">{{#str}}paste, local_bonifica{{/str}}</header><div class="b">
+<p class="mt-0">{{#str}}paste_intro, local_bonifica{{/str}} <a href="{{templateurl}}"><i>{{#str}}template, local_bonifica{{/str}}</i></a></p>
+<textarea name="text" rows="8" aria-label="{{#str}}paste, local_bonifica{{/str}}"></textarea></div>
+<footer><button type="button" class="btn btn-secondary" data-bonifica-close="bon-paste">{{#str}}cancel{{/str}}</button><button class="btn btn-primary">{{#str}}paste_add, local_bonifica{{/str}}</button></footer>
+</form></div></div>

@@ -1,0 +1,42 @@
+{{!
+    This file is part of Moodle - https://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <https://www.gnu.org/licenses/>.
+}}
+{{!
+    @template local_bonifica/groups
+
+    The course's groups and where each one is.
+
+    Example context (json):
+    { "downloadurl": "https://example.com/local/bonifica/download.php", "sesskey": "abc", "help": "Cada grupo de Moodle del curso es un grupo de FUNDAE.",
+      "groups": [{"name": "Grupo mañanas", "idgrupo": "1", "start": "02/11/2026", "end": "30/11/2026", "nparts": 14,
+        "status": {"label": "Terminado", "badge": "warning"}, "editurl": "#", "selected": true}] }
+}}
+<h3 class="bA-h">{{#str}}tab_grupos, local_bonifica{{/str}}</h3>
+<p class="text-muted">{{#str}}groups_help, local_bonifica{{/str}}</p>
+<form method="post" action="{{downloadurl}}">
+<input type="hidden" name="sesskey" value="{{sesskey}}"><input type="hidden" name="id" value="{{courseid}}"><input type="hidden" name="kind" value="fin">
+<div class="bC-sheet"><table class="bon-groups">
+<thead><tr><th class="px-2"><span class="sr-only visually-hidden">{{#str}}col_sel, local_bonifica{{/str}}</span></th><th>{{#str}}col_grupo, local_bonifica{{/str}}</th><th>{{#str}}col_idgrupo, local_bonifica{{/str}}</th><th>{{#str}}col_inicio, local_bonifica{{/str}}</th><th>{{#str}}col_fin, local_bonifica{{/str}}</th><th>{{#str}}col_parts, local_bonifica{{/str}}</th><th>{{#str}}col_estado, local_bonifica{{/str}}</th><th></th></tr></thead>
+<tbody>
+{{#groups}}
+<tr class="{{#selected}}table-active{{/selected}}"><td class="px-2"><input type="checkbox" name="gs[]" value="{{id}}" aria-label="{{#str}}col_sel, local_bonifica{{/str}}: {{name}}"></td><td class="nm">{{name}}</td><td class="px-2 mono">{{idgrupo}}</td><td class="px-2">{{start}}</td><td class="px-2">{{end}}</td><td class="px-2">{{nparts}}</td>
+<td class="px-2"><span class="badge badge-{{status.badge}} bg-{{status.badge}}">{{status.label}}</span></td>
+<td class="px-2"><a class="btn btn-link btn-sm" href="{{editurl}}">{{#str}}editgroup, local_bonifica{{/str}}</a></td></tr>
+{{/groups}}
+</tbody></table></div>
+<button type="submit" class="btn btn-primary mt-3">{{#str}}gen_fin_selected, local_bonifica{{/str}}</button>
+<p class="small text-muted mt-2">{{footer}}</p>
+</form>
