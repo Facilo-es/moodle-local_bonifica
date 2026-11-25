@@ -19,8 +19,10 @@ Feature: The free edition offers Pro instead of running it
   Scenario: The Files tab shows the Pro offer and no Pro file buttons
     Given I log in as "teacher1"
     When I am on the Bonifica "archivos" tab of course "C1"
+    # @upsell-start
     Then I should see "Bonifica Pro"
     And I should see "Coming soon"
+    # @upsell-end
     And "Generate training action XML" "button" should not exist
     And "Generate group start XML" "button" should not exist
 
@@ -32,8 +34,10 @@ Feature: The free edition offers Pro instead of running it
     And I should see "All 2 participants are ready"
     And "Fill in from enrolments" "button" should not exist
 
+  # @upsell-start
   Scenario: The summary dashboard shows the Pro offer to a manager
     Given I log in as "admin"
     When I visit "/local/bonifica/dashboard.php"
     Then I should see "Bonifica Pro"
     And I should see "Coming soon"
+  # @upsell-end

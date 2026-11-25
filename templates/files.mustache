@@ -71,5 +71,7 @@
 {{#haswarnings}}
 <div class="alert alert-warning"><b>{{#str}}warnings_heading, local_bonifica{{/str}}</b><ul class="mb-0">{{#warnings}}<li>{{message}} <span class="small text-muted">· {{where}}</span></li>{{/warnings}}</ul></div>
 {{/haswarnings}}
+{{! @upsell-start }}
 {{#upsell}}<aside class="bA-up">{{#mutedicon}}{{> local_bonifica/icon}}{{/mutedicon}}<div>{{#str}}upsell, local_bonifica{{/str}} · <i>{{#str}}upsell_soon, local_bonifica{{/str}}</i></div></aside>{{/upsell}}
+{{! @upsell-end }}
 <p class="bA-note">{{footer}}</p>

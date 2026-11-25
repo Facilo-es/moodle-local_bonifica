@@ -67,6 +67,7 @@ final class edition_test extends \advanced_testcase {
         $this->setAdminUser();
         [$course, $action, $groups] = $this->make_fixture([1], ['A00000000']);
         $group = reset($groups);
+        edition::$listingoverride = false;
 
         $this->assertFalse(edition::is_pro());
         $html = $this->files_html($course, $action, $group);
@@ -74,8 +75,10 @@ final class edition_test extends \advanced_testcase {
         $this->assertStringNotContainsString('value="aaff"', $html);
         $this->assertStringNotContainsString('value="inicio"', $html);
         $this->assertStringNotContainsString(get_string('gen_aaff', 'local_bonifica'), $html);
+        // @upsell-start
         $this->assertStringContainsString('bA-up', $html);
         $this->assertStringContainsString(get_string('upsell', 'local_bonifica'), $html);
+        // @upsell-end
         try {
             edition::require_pro();
             $this->fail('A Pro-only request ran in the free build');

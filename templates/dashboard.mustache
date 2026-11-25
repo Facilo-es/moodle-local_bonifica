@@ -34,8 +34,10 @@
 }}
 <div class="local-bonifica bD">
 <div class="bA-title">{{#icon}}{{> local_bonifica/icon}}{{/icon}}<h2>{{#str}}dashboard, local_bonifica{{/str}}</h2><span class="text-muted small ms-auto">{{today}}</span></div>
+{{! @upsell-start }}
 {{#upsell}}
 <aside class="bA-up">{{#mutedicon}}{{> local_bonifica/icon}}{{/mutedicon}}<div>{{#str}}upsell, local_bonifica{{/str}} · <i>{{#str}}upsell_soon, local_bonifica{{/str}}</i></div></aside>
 {{/upsell}}
+{{! @upsell-end }}
 <p class="bA-note">{{#str}}footer_noaccept, local_bonifica{{/str}}</p>
 </div>
