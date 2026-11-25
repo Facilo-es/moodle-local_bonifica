@@ -75,10 +75,10 @@ final class edition_test extends \advanced_testcase {
         $this->assertStringNotContainsString('value="aaff"', $html);
         $this->assertStringNotContainsString('value="inicio"', $html);
         $this->assertStringNotContainsString(get_string('gen_aaff', 'local_bonifica'), $html);
-        // @upsell-start
+        // Marketplace build removes from here: @upsell-start
         $this->assertStringContainsString('bA-up', $html);
         $this->assertStringContainsString(get_string('upsell', 'local_bonifica'), $html);
-        // @upsell-end
+        // Marketplace build removes up to here: @upsell-end
         try {
             edition::require_pro();
             $this->fail('A Pro-only request ran in the free build');
